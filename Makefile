@@ -6,7 +6,7 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/21 00:56:33 by theo              #+#    #+#              #
-#    Updated: 2026/06/05 20:25:42 by theo             ###   ########.fr        #
+#    Updated: 2026/06/05 20:44:07 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ ps:
 
 logs:
 	@echo "$(GREEN) Display logs$(RESET)"
-	$(COMPOSE) logs
+	$(COMPOSE) logs -f
 
 images:
 	@echo "image title and version"
