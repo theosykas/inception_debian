@@ -6,7 +6,7 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/05/21 00:56:33 by theo              #+#    #+#              #
-#    Updated: 2026/06/05 20:19:07 by theo             ###   ########.fr        #
+#    Updated: 2026/06/05 20:25:42 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ init_create_dir:
 	@touch ./secrets/wp_guest_password.txt
 	@touch ./secrets/wp_root_password.txt
 # cp the exemple into .env
-	if [ ! -f srcs/.env ]; then cp srcs/.env.exemple srcs/.env; fi
+	if [ ! -f src/.env ]; then cp srcs/.env.exemple srcs/.env; fi
 
 build: init_create_dir
 ## -p check if dir exist
