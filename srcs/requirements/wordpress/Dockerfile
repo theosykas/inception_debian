@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:bullseye-slim
 
 # mysql communicate with DB
 RUN apt-get update && apt-get install -y \

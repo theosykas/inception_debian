@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:bullseye-slim
 
 # 3306 port
 
