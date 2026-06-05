@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# cas ou une commande ne fonctionne pas
 set -e
 
 if [ -z "${DOMAIN_NAME}" ]; then

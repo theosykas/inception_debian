@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# cas ou une commande ne fonctionne pas
 set -e
 
 cd /var/www/html
@@ -52,6 +51,7 @@ if [ ! -f "wp-config.php" ]; then
 		--allow-root
 
 	WP_GUEST_PASSWD=$(cat /run/secrets/wp_guest_password)
+
 	# guest user
 	wp user create \
 		"${WP_USER_GUEST}" \

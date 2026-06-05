@@ -1,7 +1,5 @@
 FROM debian:bullseye-slim
 
-# 3306 port
-
 RUN apt-get update && apt-get install -y \
 	mariadb-server
 
