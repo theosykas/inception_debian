@@ -90,7 +90,7 @@ logs:
 
 images:
 	@echo "image title and version"
-	$(COMPOSE) images
+	docker images
 
 fclean: down
 	@echo "$(RED)Removing all physical data from /home/thsykas/data...$(RESET)"
