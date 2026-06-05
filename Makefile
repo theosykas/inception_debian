@@ -88,6 +88,10 @@ logs:
 	@echo "$(GREEN) Display logs$(RESET)"
 	$(COMPOSE) logs
 
+images:
+	@echo "image title and version"
+	$(COMPOSE) images
+
 fclean: down
 	@echo "$(RED)Removing all physical data from /home/thsykas/data...$(RESET)"
 	sudo rm -rf $(VOLUME_DB) $(WORDPRESS_VOLUME)
