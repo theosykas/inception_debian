@@ -11,7 +11,4 @@
   Cela signifie que ton utilisateur root de la base de données reste sans mot de passe sécurisé.
   💡 Indice : Ajoute une ligne pour verrouiller l'utilisateur root de MariaDB avec ton mot de passe secret dans ce bloc SQL (ex: ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ADM_PASSWORD}';).
 
-Dernier conseil de "vieux de la vieille" : Juste avant de rendre, fais un git status pour être SÛR que ton fichier .env et tes fichiers dans secrets/ ne sont PAS suivis par Git. C'est l'erreur fatale qui
-  donne 0 au projet (Sujet page 9 et 11).
-
 * Le test ultime de l'évaluation : Un évaluateur va taper make fclean puis make up. Si ton WordPress se réinstalle tout seul et que tu peux te reconnecter sans erreur, tu as le 100/100.
