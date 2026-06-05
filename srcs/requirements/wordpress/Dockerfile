@@ -3,9 +3,9 @@ FROM debian:bullseye-slim
 # mysql communicate with DB
 RUN apt-get update && apt-get install -y \
 	curl \
-	php8.2-fpm \
-	php8.2-mysql \
-	php8.2-cli \
+	php7.4-fpm \
+	php7.4-mysql \
+	php7.4-cli \
 	mariadb-client \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -26,4 +26,4 @@ EXPOSE 9000
 ENTRYPOINT ["/wordpress.sh"]
 
 # -F enforce PID 1
-CMD [ "php-fpm8.2", "-F" ]
+CMD [ "php-fpm7.4", "-F" ]
