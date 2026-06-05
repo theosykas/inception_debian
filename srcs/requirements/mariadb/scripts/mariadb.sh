@@ -4,7 +4,7 @@ set -e
 
 # create sock for 
 mkdir -p /run/mysqld
-chmod -R mysql:mysql /run/mysqld
+chown -R mysql:mysql /run/mysqld
 chmod +x /run/mysqld
 
 if [ -z "${MYSQL_USER}" ] || [ -z "${MYSQL_DATABASE}" ]; then
