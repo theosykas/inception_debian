@@ -21,8 +21,16 @@ The core infrastructure is defined in `srcs/docker-compose.yml`. Each service ha
 
 ### Secrets & Environment Variables
 Credentials and sensitive settings must be defined before runtime.
+0. Make build || up init /secret with correponding .txt for cat the secrets password into script
+
 1. Duplicate the template file: `cp srcs/.env.exemple srcs/.env`
-2. Edit `srcs/.env` to include your specific passwords and settings. This file is ignored by `.gitignore` to prevent secret leaks.
+2. Edit `srcs/.env` to include your specific passwords and settings. This file is ignored by `.gitignore` to prevent secret leaks. the makefile have a rule in build to effectuate this action:
+
+```bash
+if [ ! -f src/.env ]; then cp src/.env.exemple src/.env; fi
+```
+the .env is not track by git but we have a .env.exemple we copy the .env.exemple into a real .env in first build of the project
+
 3. Configure the local domain resolution by adding your domain to the host machine:
 ```bash
 echo "127.0.0.1 thsykas.42.fr" | sudo tee -a /etc/hosts

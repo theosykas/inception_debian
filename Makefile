@@ -67,9 +67,17 @@ export LOGO_WHALE
 
 init_create_dir:
 	mkdir -p $(VOLUME_DB) $(WORDPRESS_VOLUME)
+	@mkdir -p ./secrets
+	@touch ./secrets/db_password.txt
+	@touch ./secrets/db_root_password.txt
+	@touch ./secrets/wp_guest_password.txt
+	@touch ./secrets/wp_root_password.txt
+# cp the exemple into .env
+	if [ ! -f src/.env ]; then cp src/.env.exemple src/.env; fi
 
 build: init_create_dir
 ## -p check if dir exist
+	@echo "create /secrets to store the passwd"
 	@echo "$(GREEN)creating volume and build containeur$(RESET)"
 	$(COMPOSE) build
 	@echo "$(BLUE)$$LOGO_WHALE$(RESET)"
