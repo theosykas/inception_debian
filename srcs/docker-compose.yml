@@ -1,6 +1,7 @@
 services:
   nginx:
     build: ./requirements/nginx
+    image: nginx
     container_name: nginx
     ports:
       - 443:443
@@ -12,20 +13,22 @@ services:
     - wordpress:/var/www/html
     env_file:
      - .env
-    restart: always  # requis suject crash contneur == restart
+    restart: always
 
   wordpress:
     build: ./requirements/wordpress
+    image: wordpress
     container_name: wordpress
     depends_on:
      - mariadb
-    #   conditions: service_healthy  # depend du reel lancement DB
+    # depend of start DB
     volumes:
-      - wordpress:/var/www/html/  # cherche les fichiers et ensuite redirige dans path/thsykas
+      - wordpress:/var/www/html/
     networks:
     - inception_network
+    # acces to all $(var)= /.env
     env_file:
-      - .env  # acces a toutes les var .env
+      - .env
     secrets:
       - db_password
       - wp_root_password
@@ -34,6 +37,7 @@ services:
 
   mariadb:
     build: ./requirements/mariadb
+    image: mariadb
     container_name: mariadb
     volumes:
       - mariadb:/var/lib/mysql
@@ -48,12 +52,14 @@ services:
 
 volumes:
   mariadb:
-    driver: local  # local sur (MACHINE)
+    # local in (MACHINE)
+    driver: local
     # list of param for volume
     driver_opts:
       type: none
       o: bind
-      device: /home/thsykas/data/mariadb_volume  # store volume in target
+        # store volume in target path
+      device: /home/thsykas/data/mariadb_volume
 
   wordpress:
     driver: local
