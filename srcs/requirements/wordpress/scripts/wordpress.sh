@@ -60,9 +60,6 @@ if [ ! -f "wp-config.php" ]; then
 		--role=author \
 		--allow-root
 
-
-	wp rewrite structure '/%postname%/' --allow-root
-
 	echo "wordpress init completed succesfully"
 
 else
