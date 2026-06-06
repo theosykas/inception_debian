@@ -103,5 +103,7 @@ images:
 fclean: down
 	@echo "$(RED)Removing all physical data from /home/thsykas/data...$(RESET)"
 	sudo rm -rf $(VOLUME_DB) $(WORDPRESS_VOLUME)
+	rm -rf srcs/.env
+	rm -rf ./secrets
 
 .PHONY: up down build logs
