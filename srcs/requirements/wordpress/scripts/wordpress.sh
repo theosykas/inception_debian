@@ -18,7 +18,7 @@ if [ ! -f "/run/secrets/wp_guest_password" ] || \
 	exit 1
 fi
 
-if [ ! -f "wp-config.php" ]; then
+if [ ! -f "wp-settings.php" ]; then
 	echo "Wordpress not found, init in progress"
 	wp core download --allow-root --force
 
@@ -26,7 +26,7 @@ if [ ! -f "wp-config.php" ]; then
 	# code for php load db ...
 
 	# wait (db)
-	sleep 10
+	# sleep 25
 
 	# stock pass in var : db to log
 	DB_PASSWORD=$(cat /run/secrets/db_password)
