@@ -26,7 +26,7 @@ if [ ! -f "wp-config.php" ]; then
 	# code for php load db ...
 
 	# wait (db)
-	sleep 10
+	sleep 15
 
 	# stock pass in var : db to log
 	DB_PASSWORD=$(cat /run/secrets/db_password)
