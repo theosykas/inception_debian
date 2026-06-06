@@ -82,7 +82,7 @@ build: init_create_dir
 	$(COMPOSE) build
 	@echo "$(BLUE)$$LOGO_WHALE$(RESET)"
 
-up: init_create_dir
+up:
 	$(COMPOSE) up -d
 
 down:
