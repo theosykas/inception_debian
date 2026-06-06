@@ -5,7 +5,7 @@ set -e
 cd /var/www/html
 
 if [ -z "${DOMAIN_NAME}" ] || \
-	[ -z "${WP_USER_ADMIN}" ] || \
+	[ -z "${WP_SUPER_USER}" ] || \
 	[ -z "${MYSQL_DATABASE}" ]; then
 	echo "Error environement variable not valid"
 	exit 1
@@ -22,12 +22,6 @@ if [ ! -f "wp-settings.php" ]; then
 	echo "Wordpress not found, init in progress"
 	wp core download --allow-root --force
 
-	# create config.php with database(mariaDB) and check data_base content
-	# code for php load db ...
-
-	# wait (db)
-	# sleep 25
-
 	# stock pass in var : db to log
 	DB_PASSWORD=$(cat /run/secrets/db_password)
 
@@ -39,15 +33,15 @@ if [ ! -f "wp-settings.php" ]; then
 		--allow-root
 
 
-	WP_PASS_ADM=$(cat /run/secrets/wp_root_password)
+	WP_ROOT_PASS=$(cat /run/secrets/wp_root_password)
 
 	# create admin user + init WP
 	wp core install \
 		--url=${DOMAIN_NAME} \
 		--title="inception_wp" \
-		--admin_user="${WP_USER_ADMIN}" \
-		--admin_password="${WP_PASS_ADM}" \
-		--admin_email="${WP_ADMIN_MAIL}" \
+		--admin_user="${WP_SUPER_USER}" \
+		--admin_password="${WP_ROOT_PASS}" \
+		--admin_email="${WP_SUPER_MAIL}" \
 		--allow-root
 
 	WP_GUEST_PASSWD=$(cat /run/secrets/wp_guest_password)

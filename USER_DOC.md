@@ -93,13 +93,3 @@ Verify that your data is correctly stored on the host machine:
 ---
 
 *For technical implementation details, infrastructure design, and environment setup, please refer to [DEV_DOC.md](https://www.google.com/search?q=./DEV_DOC.md).*
-
-
-
-cd srcs
-docker compose -p srcs ps
-
-port 80 check
-domain.42.fr:80 error == non port 80
-
-clique cadenas pour check info on tls protocol
